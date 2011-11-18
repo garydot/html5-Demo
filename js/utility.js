@@ -1,6 +1,28 @@
 /**
  * @author gary.zhan
  */
+//deep copy
+function deepCopy(p, c) {
+	var c = c || {};
+	for(var i in p) {
+		if( typeof p[i] === 'object') {
+			c[i] = (p[i].constructor === Array) ? [] : {};
+			deepCopy(p[i], c[i]);
+		} else {
+			c[i] = p[i];
+		}
+	}
+	return c;
+}
+
+//load javascript
+function loadScript(url) {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src = url;
+	document.body.appendChild(script);
+}
+
 //what's this syntax
 Object.beget = function(o) {
 	var F = function(o) {
@@ -8,7 +30,6 @@ Object.beget = function(o) {
 	F.prototype = o;
 	return new F;
 };
-
 var fireEvent = function(name, data) {
 	var e = document.createEvent("Event");
 	e.initEvent(name, true, true);
