@@ -1,6 +1,14 @@
 /**
  * @author gary.zhan
  */
+//what's this syntax
+Object.beget = function(o) {
+	var F = function(o) {
+	};
+	F.prototype = o;
+	return new F;
+};
+
 var fireEvent = function(name, data) {
 	var e = document.createEvent("Event");
 	e.initEvent(name, true, true);

@@ -12,18 +12,20 @@
 		this.property1 = "";
 		this.property2 = 0;
 	}
-	//private function
-	function somePrivateFunc() {
-	}
-	
+		
 	//private property
 	var privateVal = 0;
 
+	//private function
+	function somePrivateFunc() {
+	}
+
 	SomeClass.prototype = {
-		init : function(jsonUrl) {
+		init : function() {
 			//todo:init
+			alert("static function");
 		},
-		somePublicFunc : function(jsonUrl) {
+		somePublicFunc : function() {
 		}
 	}
 }(JS));
@@ -33,7 +35,7 @@
  */
 //todo init 
 var main = JS.main = function() {
-
+	alert("main function");
 }
 $(document).ready(function() {
 	JS.main();
